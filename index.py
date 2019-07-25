@@ -2,6 +2,7 @@ import youtube_dl
 from flask import Flask, escape, url_for,request,json,jsonify
 
 app = Flask(__name__)
+app.config['PYTHONATH']='bypass_app'
 
 @app.route('/')
 def index():
