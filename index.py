@@ -24,8 +24,14 @@ def youtube():
             else:
                 # Just a video
                 video = result
-                list = video['formats']
-                return jsonify(list)
+                v=[]
+                for item in video['formats']:
+                    v.append({
+                        'type':item['ext'],
+                        'format':item['format'],
+                        'url':item['url']
+                        })        
+                return jsonify(v)
         except :
             return jsonify({"Message":'Please Enter Valid URL'})
     else:
