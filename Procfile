@@ -1,1 +1,1 @@
-web: gunicorn bypass-youtube:app
+web: gunicorn index:app
