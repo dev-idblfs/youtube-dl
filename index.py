@@ -12,9 +12,10 @@ def index():
 @app.route('/youtube')
 def youtube():
     if request.args:
+        url = request.args.get('url')
         ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
         result = ydl.extract_info(
-            'https://www.youtube.com/watch?v=HhXvUMf4P_U',
+            url,
             download=False # We just want to extract the info
         )
         if 'entries' in result:
